@@ -1,0 +1,20 @@
+galaxy_info:
+  author: digimokan
+  description: "Clone playbook used to set up the machine, and emplace vault password"
+  license: "MIT"
+  min_ansible_version: 2.5
+  platforms:
+    - name: Archlinux
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: FreeBSD
+      versions:
+        - all
+  galaxy_tags:
+    - archlinux
+    - ubuntu
+    - freebsd
+

@@ -1,0 +1,32 @@
+- name: "Clone the machine-setup playbook to '{{ cfg_user_playbook_target_pb_clone_dir }}'"
+  ansible.builtin.git:
+    repo: "{{ cfg_user_playbook_source_pb_git_url_full }}"
+    dest: "{{ cfg_user_playbook_target_pb_clone_dir }}"
+    update: false
+  become: true
+  become_user: "{{ cfg_user_playbook_target_user_name }}"
+
+- name: >-
+    Copy '{{ cfg_user_playbook_source_vault_passwd_path }}' to
+    '{{ cfg_user_playbook_target_vault_passwd_symlink_to_path }}'
+  ansible.builtin.copy:
+    src: "{{ cfg_user_playbook_source_vault_passwd_path }}"
+    dest: "{{ cfg_user_playbook_target_vault_passwd_symlink_to_path }}"
+    owner: "{{ cfg_user_playbook_target_user_name }}"
+  become: true
+  become_user: root
+
+- name: >-
+    Symlink '{{ cfg_user_playbook_target_vault_passwd_symlink_from_path }}'
+    to '{{ cfg_user_playbook_target_vault_passwd_symlink_to_path }}'
+  ansible.builtin.file:
+    src: "{{ cfg_user_playbook_target_vault_passwd_symlink_to_path }}"
+    dest: "{{ cfg_user_playbook_target_vault_passwd_symlink_from_path }}"
+    owner: "{{ cfg_user_playbook_target_user_name }}"
+    state: link
+    force: true
+  become: true
+  become_user: root
+  when: cfg_user_playbook_target_vault_passwd_symlink_from_path !=
+        cfg_user_playbook_target_vault_passwd_symlink_to_path
+
