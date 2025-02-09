@@ -29,18 +29,7 @@
     state: link
     force: true
   become: true
-  become_user: root
-  when: cfg_user_playbook_target_vault_passwd_symlink_from_path !=
-        cfg_user_playbook_target_vault_passwd_symlink_to_path
-
-- name: "Set owner and permissions on '{{ cfg_user_playbook_target_vault_passwd_symlink_from_path }}'"
-  ansible.builtin.file:
-    path: "{{ cfg_user_playbook_target_vault_passwd_symlink_from_path }}"
-    owner: "{{ cfg_user_playbook_target_user_name }}"
-    group: "{{ cfg_user_playbook_target_group_name }}"
-    mode: '755'
-  become: true
-  become_user: root
+  become_user: "{{ cfg_user_playbook_target_user_name }}"
   when: cfg_user_playbook_target_vault_passwd_symlink_from_path !=
         cfg_user_playbook_target_vault_passwd_symlink_to_path
 
