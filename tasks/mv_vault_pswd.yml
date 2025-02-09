@@ -27,6 +27,7 @@
     dest: "{{ cfg_user_playbook_target_vault_passwd_symlink_from_path }}"
     owner: "{{ cfg_user_playbook_target_user_name }}"
     state: link
+    follow: false
     force: true
   become: true
   become_user: "{{ cfg_user_playbook_target_user_name }}"
