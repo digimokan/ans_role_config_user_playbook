@@ -1,0 +1,8 @@
+- name: "Clone the machine-setup playbook to '{{ cfg_user_playbook_target_pb_clone_dir }}'"
+  ansible.builtin.git:
+    repo: "{{ cfg_user_playbook_source_pb_git_url_full }}"
+    dest: "{{ cfg_user_playbook_target_pb_clone_dir }}"
+    update: false
+  become: true
+  become_user: "{{ cfg_user_playbook_target_user_name }}"
+

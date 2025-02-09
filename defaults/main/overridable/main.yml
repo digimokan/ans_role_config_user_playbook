@@ -14,14 +14,15 @@ cfg_user_playbook_source_vault_passwd_path: "/root/{{ cfg_user_playbook_pb_name 
 
 # set up playbook for this user
 cfg_user_playbook_target_user_name: 'user2'
+cfg_user_playbook_target_group_name: 'user2'
 
 # clone playbook to this directory
 cfg_user_playbook_target_pb_clone_dir: "/home/{{ cfg_user_playbook_target_user_name }}"
 
 # when these vars are equal:
-#   copy source_vault_passwd_path to target_vault_passwd_symlink_to_path
+#   move source_vault_passwd_path to target_vault_passwd_symlink_to_path
 # when these vars are different:
-  #   copy source_vault_passwd_path to target_vault_passwd_symlink_to_path
+  #   move source_vault_passwd_path to target_vault_passwd_symlink_to_path
   #   symlink target_vault_passwd_symlink_from_path to target_vault_passwd_symlink_to_path
 cfg_user_playbook_target_vault_passwd_symlink_from_path: "{{ cfg_user_playbook_target_pb_clone_dir }}/vault_password.txt"
 cfg_user_playbook_target_vault_passwd_symlink_to_path: "{{ cfg_user_playbook_target_pb_clone_dir }}/vault_password.txt"
