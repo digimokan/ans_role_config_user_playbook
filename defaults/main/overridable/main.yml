@@ -14,7 +14,7 @@ cfg_user_playbook_target_user_name: 'user2'
 cfg_user_playbook_target_group_name: 'user2'
 
 # clone playbook in this directory
-cfg_user_playbook_target_pb_clone_dir: "/home/{{ cfg_user_playbook_target_user_name }}"
+cfg_user_playbook_target_pb_clone_dir: "/home/{{ cfg_user_playbook_target_user_name }}/{{ cfg_user_playbook_pb_name }}"
 
 # when these vars are equal:
 #   move source_vault_passwd_path to target_vault_passwd_symlink_to_path
