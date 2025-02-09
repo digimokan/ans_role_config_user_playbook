@@ -58,6 +58,7 @@ Clone playbook used to set up the machine, and emplace vault password.
          vars:
            cfg_user_playbook_pb_name: 'ans_plbk_fedora_mate_user7'
            cfg_user_playbook_target_user_name: 'admin5'
+           cfg_user_playbook_target_group_name: 'admin5'
            cfg_user_playbook_target_pb_clone_dir: '/home/admin5'
            cfg_user_playbook_target_vault_passwd_symlink_to_path: '/home/user7/admin_vault_password.txt'
    ```
