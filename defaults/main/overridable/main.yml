@@ -4,10 +4,7 @@ cfg_user_playbook_pb_name: 'ans_plbk_openbsd_user9'
 # assemble the playbook download URL
 cfg_user_playbook_source_pb_git_url_prefix: 'https://github.com/digimokan'
 cfg_user_playbook_source_pb_git_url_suffix: '.git'
-cfg_user_playbook_source_pb_git_url_full: >-
-  {{ cfg_user_playbook_source_pb_git_url_prefix }}/\
-  {{ cfg_user_playbook_pb_name }}\
-  {{ cfg_user_playbook_source_pb_git_url_suffix }}
+cfg_user_playbook_source_pb_git_url_full: "{{ cfg_user_playbook_source_pb_git_url_prefix }}/{{ cfg_user_playbook_pb_name }}{{ cfg_user_playbook_source_pb_git_url_suffix }}"
 
 # copy vault_password.txt from this path
 cfg_user_playbook_source_vault_passwd_path: "/root/{{ cfg_user_playbook_pb_name }}/vault_password.txt"
