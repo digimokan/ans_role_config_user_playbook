@@ -15,7 +15,7 @@
     path: "{{ cfg_user_playbook_target_vault_passwd_symlink_to_path }}"
     owner: "{{ cfg_user_playbook_target_user_name }}"
     group: "{{ cfg_user_playbook_target_group_name }}"
-    mode: 644
+    mode: '644'
   become: true
   become_user: root
 
