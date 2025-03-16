@@ -1,6 +1,6 @@
 - name: "Use git restore to undo any local changes in '{{ cfg_user_playbook_root_path }}'"
   ansible.builtin.command:
-    cmd: git restore {{ cfg_user_playbook_root_path | quote }}
+    cmd: git restore .
     chdir: "{{ cfg_user_playbook_root_path }}"
   become: true
   become_user: root
