@@ -4,3 +4,6 @@
 - name: "Move vault password file to target user dir, optionally symlinking"
   ansible.builtin.include_tasks: mv_vault_pswd.yml
 
+- name: "Discard any local changes in source/root playbook git dir"
+  ansible.builtin.include_tasks: discard_root_changes.yml
+
